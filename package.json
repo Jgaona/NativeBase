@@ -13,19 +13,6 @@
     "navbar",
     "packager"
   ],
-  "scripts": {
-    // "test": "node_modules/.bin/jest",
-    // "typescript": "tsc --noEmit",
-    // "prepare": "bob build",
-    // "release": "release-it",
-    // "example": "yarn --cwd example",
-    // "pods": "cd example && pod-install --quiet",
-    // "bootstrap": "yarn example && yarn && yarn pods",
-    // "build:web": "rollup --config",
-    // "bundle:analysis": "visualize-bundle",
-    // "commit-test": "yarn prepare && cd example && yarn test && cd ..",
-    // "postinstall": "patch-package"
-  },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
       "eslint"
