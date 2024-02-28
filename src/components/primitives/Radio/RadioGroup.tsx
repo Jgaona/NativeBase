@@ -1,22 +1,25 @@
 import React, { memo, forwardRef } from 'react';
-import { Stack } from '../Stack';
+import Box from '../Box';
 import { useFormControlContext } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
 );
-const RadioWrapper = memo((props: any) => {
-  const resolvedProps = usePropsResolution('RadioGroup', props);
-  return <Stack {...resolvedProps} {...props.radioGroupProps} {...props} />;
+const RadioWrapper = React.memo((props: any) => {
+  // console.log('hello here group');
+  return (
+    <Box alignItems="flex-start" {...props.radioGroupProps} {...props}>
+      {props.children}
+    </Box>
+  );
 });
 
 const RadioGroup = (
-  { size, colorScheme, _radio, children, ...props }: IRadioGroupProps,
+  { size, colorScheme, _radio, ...props }: IRadioGroupProps,
   ref: any
 ) => {
   const formControlContext = useFormControlContext();
@@ -43,17 +46,19 @@ const RadioGroup = (
     []
   );
 
+  // console.log(radioGroupState);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps({ ...props, size, colorScheme })) {
     return null;
   }
 
+  // return null;
   return (
-    <RadioContext.Provider value={contextValue}>
-      <RadioWrapper {...radioGroupProps} {...propsState} ref={ref}>
-        {children}
-      </RadioWrapper>
-    </RadioContext.Provider>
+    <Box ref={ref}>
+      <RadioContext.Provider value={contextValue}>
+        <RadioWrapper {...radioGroupProps} {...propsState} ref={ref} />
+      </RadioContext.Provider>
+    </Box>
   );
 };
 

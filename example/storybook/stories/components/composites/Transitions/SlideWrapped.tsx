@@ -16,7 +16,7 @@ export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Center>
-      <Box w={['250', '300']} justifyContent="center">
+      <Box w="300" justifyContent="center">
         <VStack space={3}>
           <HStack alignItems="flex-end">
             <Heading>Order</Heading>
@@ -56,7 +56,6 @@ export const Example = () => {
             _dark={{
               bg: 'emerald.200',
             }}
-            safeArea
           >
             <HStack space={2}>
               <CheckIcon

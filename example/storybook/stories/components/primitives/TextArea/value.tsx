@@ -3,12 +3,14 @@ import { TextArea, Box } from 'native-base';
 
 export const Example = () => {
   const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
+  const demoValueControlledTextArea = (e: any) => {
+    setTextAreaValue(e.currentTarget.value);
+  };
   return (
     <Box alignItems="center" w="100%">
       <TextArea
         value={textAreaValue}
-        onChange={(e: any) => setTextAreaValue(e.currentTarget.value)} // for web
-        onChangeText={(text: any) => setTextAreaValue(text)} // for android and ios
+        onChange={demoValueControlledTextArea}
         w="75%"
         maxW="300"
       />

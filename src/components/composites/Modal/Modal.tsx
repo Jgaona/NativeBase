@@ -25,22 +25,17 @@ const Modal = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    animationPreset,
+    //@ts-ignore - internal purpose only
+    animationPreset = 'fade',
     ...rest
   }: IModalProps,
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const {
-    contentSize,
-    _backdrop,
-    _backdropFade,
-    _fade,
-    _slide,
-    _overlay,
-    useRNModal,
-    ...resolvedProps
-  } = usePropsResolution('Modal', rest);
+  const { contentSize, _backdrop, ...resolvedProps } = usePropsResolution(
+    'Modal',
+    rest
+  );
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -77,7 +72,7 @@ const Modal = (
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-
+  // console.log('visible here', visible);
   return (
     <Overlay
       isOpen={visible}
@@ -85,11 +80,14 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
-      useRNModal={useRNModal}
-      {..._overlay}
     >
       <ModalContext.Provider value={contextValue}>
-        <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
+        <Fade
+          exitDuration={150}
+          entryDuration={200}
+          in={visible}
+          style={StyleSheet.absoluteFill}
+        >
           {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
@@ -100,7 +98,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} {..._slide}>
+          <Slide in={visible} overlay={false} duration={200}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -110,7 +108,12 @@ const Modal = (
             </FocusScope>
           </Slide>
         ) : (
-          <Fade in={visible} style={StyleSheet.absoluteFill} {..._fade}>
+          <Fade
+            exitDuration={100}
+            entryDuration={200}
+            in={visible}
+            style={StyleSheet.absoluteFill}
+          >
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

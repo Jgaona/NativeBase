@@ -8,7 +8,6 @@ import {
   HStack,
   Switch,
   Text,
-  Stack,
 } from 'native-base';
 
 const ButtonTemplate = ({ shade }: any) => {
@@ -31,18 +30,18 @@ const ButtonTemplate = ({ shade }: any) => {
 };
 
 export const Example = () => {
-  const [, , toggleAccessibleColors] = useAccessibleColors();
+  let [, , toggleAccessibleColors] = useAccessibleColors();
   const { colors } = useTheme();
   return (
     <Center>
-      <Stack space="3" direction={['column', 'row']}>
+      <HStack space="3">
         {Object.keys(colors.yellow).map((key, index) => {
           if (index > 2 && index < 9) return <ButtonTemplate shade={key} />;
         })}
-      </Stack>
+      </HStack>
       <HStack mt="6" space="3">
         <Text>Toggle Accessible Colors</Text>
-        <Switch onValueChange={toggleAccessibleColors} colorScheme="coolGray" />
+        <Switch onToggle={toggleAccessibleColors} colorScheme="coolGray" />
       </HStack>
     </Center>
   );

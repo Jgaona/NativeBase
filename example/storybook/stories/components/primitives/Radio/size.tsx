@@ -10,7 +10,7 @@ export const Example = () => {
     >
       <Stack
         direction={{ base: 'column', md: 'row' }}
-        alignItems={{ base: 'flex-start', md: 'center' }}
+        alignItems="center"
         space={4}
         w="75%"
         maxW="300px"

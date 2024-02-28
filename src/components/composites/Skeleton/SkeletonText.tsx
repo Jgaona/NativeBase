@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { usePropsResolution } from '../../../hooks';
-import { Stack } from '../../primitives/Stack';
+import { VStack } from '../../primitives/Stack';
 import Skeleton from './Skeleton';
 import type { ISkeletonTextProps } from './types';
 
@@ -48,9 +48,9 @@ const SkeletonText = (
   return isLoaded ? (
     children
   ) : (
-    <Stack {...resolvedProps} ref={ref}>
+    <VStack {...resolvedProps} ref={ref}>
       {computedChildren}
-    </Stack>
+    </VStack>
   );
 };
 

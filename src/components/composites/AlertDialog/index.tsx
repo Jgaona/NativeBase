@@ -6,7 +6,7 @@ import AlertDialogFooter from './AlertDialogFooter';
 import AlertDialogHeader from './AlertDialogHeader';
 import type { IAlertDialogComponentType } from './types';
 
-const AlertDialogTemp: any = AlertDialog;
+let AlertDialogTemp: any = AlertDialog;
 
 AlertDialogTemp.Content = AlertDialogContent;
 AlertDialogTemp.CloseButton = AlertDialogCloseButton;

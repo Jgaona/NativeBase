@@ -9,7 +9,8 @@ export const Example = () => {
     <Box alignItems="center">
       <Input
         type={show ? 'text' : 'password'}
-        w="100%"
+        w="75%"
+        maxW="300px"
         py="0"
         InputRightElement={
           <Button

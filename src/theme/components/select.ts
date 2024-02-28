@@ -1,66 +1,25 @@
+import { mode } from '../tools';
 export const Select = {
-  baseStyle: () => {
+  baseStyle: (props: Record<string, any>) => {
     return {
-      selection: {
-        start: 0,
-      },
-
-      _customDropdownIconProps: {
-        color: 'muted.500',
-        mr: '3',
+      customDropdownIconProps: {
         size: '6',
         p: '1',
-      },
-      _hover: {
-        borderColor: 'primary.600',
-      },
-      _focus: {
-        borderColor: 'primary.600',
+        pl: '0',
+        color: 'trueGray.400',
       },
       _disabled: {
-        bg: 'muted.100',
-        placeholderTextColor: 'muted.700',
+        opacity: '80',
+        bg: mode('muted.100', 'muted.700')(props),
       },
       _invalid: {
-        borderColor: 'error.600',
+        borderColor: mode('danger.600', 'danger.300')(props),
       },
-
-      _dark: {
-        _customDropdownIconProps: { color: 'muted.400', mr: '3' },
-        _hover: {
-          borderColor: 'primary.500',
-        },
-        _focus: {
-          borderColor: 'primary.500',
-        },
-        _disabled: {
-          bg: 'muted.800',
-          opacity: '80',
-          placeholderTextColor: 'text.50',
-        },
-        _invalid: {
-          borderColor: 'error.500',
-        },
+      _focus: {
+        borderColor: mode('primary.400', 'primary.500')(props),
       },
-
-      _webSelect: {
-        style: {
-          appearance: 'none',
-          WebkitAppearance: 'none',
-          MozAppearance: 'none',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          opacity: 0,
-          zIndex: 1,
-        },
-      },
-      _web: {
-        pointerEvents: 'none',
-      },
-
-      _actionSheetBody: {
-        w: '100%',
+      _hover: {
+        bg: mode('gray.100', 'gray.700')(props),
       },
       _actionSheetContent: {},
     };

@@ -1,12 +1,8 @@
 import React, { memo, forwardRef } from 'react';
-//@ts-ignore
-import stableHash from 'stable-hash';
 import { Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
-import { Stack } from '../Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
 import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
@@ -58,8 +54,6 @@ const RadioComponent = memo(
         onBlur,
         _interactionBox,
         _icon,
-        _stack,
-        _text,
         ...resolvedProps
       } = usePropsResolution(
         'Radio',
@@ -79,14 +73,11 @@ const RadioComponent = memo(
         }
       );
 
-      const [, cleanInputProps] = extractInObject(inputProps, [
+      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
         ...stylingProps.margin,
         ...stylingProps.layout,
         ...stylingProps.flexbox,
         ...stylingProps.position,
-        ...stylingProps.background,
-        ...stylingProps.padding,
-        ...stylingProps.border,
         '_text',
       ]);
 
@@ -99,9 +90,8 @@ const RadioComponent = memo(
 
       return (
         <Pressable
-          disabled={isDisabled}
           {...pressableProps}
-          {...(cleanInputProps as IPressableProps)}
+          {...(inputProps as IPressableProps)}
           ref={mergeRefs([ref, wrapperRef])}
           accessibilityRole="radio"
           onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -124,12 +114,18 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Stack {..._stack}>
+          <Center
+            flexDirection="row"
+            justifyContent="center"
+            alignItems="center"
+            borderRadius="full"
+            {...layoutProps}
+          >
             <Center>
               {/* Interaction Wrapper */}
-              <Box {..._interactionBox} />
+              <Box {..._interactionBox} p={5} w="100%" height="100%" />
               {/* radio */}
-              <Center {...resolvedProps}>
+              <Center {...nonLayoutProps}>
                 {icon && sizedIcon && isChecked ? (
                   sizedIcon()
                 ) : (
@@ -138,8 +134,8 @@ const RadioComponent = memo(
               </Center>
             </Center>
             {/* Label */}
-            {wrapStringChild(children, _text)}
-          </Stack>
+            {children}
+          </Center>
         </Pressable>
       );
     }
@@ -172,16 +168,17 @@ const Radio = (
     inputRef
   );
 
+  // console.log('radio', radioState);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => radioState.inputProps, [
     radioState.inputProps.checked,
     radioState.inputProps.disabled,
   ]);
 
-  const contextCombinedProps = React.useMemo(() => {
-    return { ...combinedProps };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stableHash(combinedProps)]);
+  const [contextCombinedProps] = React.useState({
+    ...combinedProps,
+  });
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

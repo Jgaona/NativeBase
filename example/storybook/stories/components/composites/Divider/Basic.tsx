@@ -8,11 +8,7 @@ export const Example = () => {
         <Heading mx="3" alignItems="center" flexDirection="row">
           Chrome
         </Heading>
-        <Divider
-          my="2"
-          _light={{ bg: 'muted.800' }}
-          _dark={{ bg: 'muted.50' }}
-        />
+        <Divider my="2" />
         <Heading mx="3" alignItems="center" flexDirection="row">
           Firefox
         </Heading>

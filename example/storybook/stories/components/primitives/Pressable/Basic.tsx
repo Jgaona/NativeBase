@@ -4,18 +4,16 @@ import { Pressable, Text, Box, HStack, Spacer, Flex, Badge } from 'native-base';
 export function Example() {
   return (
     <Box alignItems="center">
-      <Pressable
-        onPress={() => console.log("I'm Pressed")}
-        rounded="8"
-        overflow="hidden"
-        borderWidth="1"
-        borderColor="coolGray.300"
-        maxW="96"
-        shadow="3"
-        bg="coolGray.100"
-        p="5"
-      >
-        <Box>
+      <Pressable onPress={() => console.log("I'm Pressed")}>
+        <Box
+          maxW="96"
+          borderWidth="1"
+          borderColor="coolGray.300"
+          shadow="3"
+          bg="coolGray.100"
+          p="5"
+          rounded="8"
+        >
           <HStack alignItems="center">
             <Badge
               colorScheme="darkBlue"

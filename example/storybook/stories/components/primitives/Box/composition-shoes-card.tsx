@@ -4,10 +4,7 @@ export const Example = () => {
   return (
     <Box
       flexDirection={{ base: 'column', md: 'row' }}
-      _ios={{ shadow: 4 }}
-      _android={{ borderWidth: 1 }}
-      _light={{ borderColor: 'gray.300' }}
-      _dark={{ borderColor: 'gray.400' }}
+      shadow={4}
       rounded="xl"
       overflow="hidden"
       w="100%"

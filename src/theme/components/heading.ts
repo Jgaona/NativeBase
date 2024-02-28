@@ -1,9 +1,8 @@
-const baseStyle = () => {
+import { mode } from './../tools';
+
+const baseStyle = (props: Record<string, any>) => {
   return {
-    color: 'text.900',
-    _dark: {
-      color: 'text.50',
-    },
+    color: mode('muted.700', 'white')(props),
     fontWeight: 'bold',
     lineHeight: 'sm',
   };
@@ -11,21 +10,19 @@ const baseStyle = () => {
 
 const sizes = {
   '4xl': {
-    fontSize: { base: '6xl', md: '7xl' },
-    letterSpacing: 'xl',
+    fontSize: ['6xl', null, '7xl'],
   },
   '3xl': {
-    fontSize: { base: '5xl', md: '6xl' },
-    letterSpacing: 'xl',
+    fontSize: ['5xl', null, '6xl'],
   },
   '2xl': {
-    fontSize: { base: '4xl', md: '5xl' },
+    fontSize: ['4xl', null, '5xl'],
   },
   'xl': {
-    fontSize: { base: '3xl', md: '4xl' },
+    fontSize: ['3xl', null, '4xl'],
   },
   'lg': {
-    fontSize: { base: '2xl', md: '3xl' },
+    fontSize: ['2xl', null, '3xl'],
   },
   'md': { fontSize: 'xl' },
   'sm': { fontSize: 'md' },

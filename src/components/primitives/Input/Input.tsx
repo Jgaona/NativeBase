@@ -1,30 +1,16 @@
 import React, { memo, forwardRef } from 'react';
+import Box from '../Box';
 import type { IInputProps } from './types';
-import { TextInput } from 'react-native';
-import { useToken } from '../../../hooks';
+import InputBase from './InputBase';
 import { useFormControl } from '../../composites/FormControl';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { mergeRefs, resolveStackStyleInput } from '../../../utils';
-import { Stack } from '../Stack';
-import { makeStyledComponent } from '../../../utils/styled';
-import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-
-const StyledInput = makeStyledComponent(TextInput);
+import { mergeRefs } from '../../../utils';
 
 const Input = (
-  {
-    isHovered: isHoveredProp,
-    isFocused: isFocusedProp,
-    onKeyPress,
-    InputLeftElement,
-    InputRightElement,
-    leftElement,
-    rightElement,
-    ...props
-  }: IInputProps,
+  { isHovered: isHoveredProp, isFocused: isFocusedProp, ...props }: IInputProps,
   ref: any
 ) => {
   const inputProps = useFormControl({
@@ -51,24 +37,13 @@ const Input = (
   };
 
   const {
-    ariaLabel,
-    accessibilityLabel,
-    type,
-    isFullWidth,
-    isDisabled,
-    isReadOnly,
-    fontFamily,
-    fontWeight,
-    fontStyle,
-    placeholderTextColor,
-    selectionColor,
-    underlineColorAndroid,
+    InputLeftElement,
+    InputRightElement,
+    leftElement,
+    rightElement,
     onFocus,
     onBlur,
     wrapperRef,
-    _stack,
-    _input,
-
     ...resolvedProps
   } = usePropsResolution(
     'Input',
@@ -96,88 +71,67 @@ const Input = (
     'opacity',
   ]);
 
-  const resolvedFontFamily = useResolvedFontFamily({
-    fontFamily,
-    fontWeight: fontWeight ?? 400,
-    fontStyle: fontStyle ?? 'normal',
-  });
-  const resolvedPlaceholderTextColor = useToken('colors', placeholderTextColor);
-  const resolvedSelectionColor = useToken('colors', selectionColor);
-  const resolvedUnderlineColorAndroid = useToken(
-    'colors',
-    underlineColorAndroid
-  );
+  const [, baseInputProps] = extractInObject(nonLayoutProps, ['variant']);
 
-  /**Converting into Hash Color Code */
-  //@ts-ignore
-  resolvedProps.focusOutlineColor = useToken(
-    'colors',
-    resolvedProps.focusOutlineColor
-  );
-  //@ts-ignore
-  resolvedProps.invalidOutlineColor = useToken(
-    'colors',
-    resolvedProps.invalidOutlineColor
-  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-
-  if (resolvedProps.focusOutlineColor && isFocused) {
-    layoutProps.borderColor = resolvedProps.focusOutlineColor;
-    _stack.style = resolveStackStyleInput(
-      props.variant,
-      resolvedProps.focusOutlineColor
+  if (InputLeftElement || InputRightElement || leftElement || rightElement) {
+    return (
+      <Box
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        overflow="hidden"
+        {...layoutProps}
+        ref={mergeRefs([_ref, wrapperRef])}
+      >
+        {InputLeftElement || leftElement
+          ? InputLeftElement || leftElement
+          : null}
+        <InputBase
+          InputLeftElement={InputLeftElement}
+          InputRightElement={InputRightElement}
+          leftElement={leftElement}
+          rightElement={rightElement}
+          inputProps={inputProps}
+          bg="transparent"
+          {...baseInputProps}
+          flex={1}
+          disableFocusHandling
+          ref={ref}
+          variant="unstyled"
+          onFocus={(e) => {
+            handleFocus(true, onFocus ? () => onFocus(e) : () => {});
+          }}
+          onBlur={(e) => {
+            handleFocus(false, onBlur ? () => onBlur(e) : () => {});
+          }}
+        />
+        {InputRightElement || rightElement
+          ? InputRightElement || rightElement
+          : null}
+      </Box>
     );
-  }
-
-  if (resolvedProps.invalidOutlineColor && props.isInvalid) {
-    layoutProps.borderColor = resolvedProps.invalidOutlineColor;
-    _stack.style = resolveStackStyleInput(
-      props.variant,
-      resolvedProps.invalidOutlineColor
-    );
-  }
-
-  return (
-    <Stack
-      {..._stack}
-      {...layoutProps}
-      ref={mergeRefs([_ref, wrapperRef])}
-      isFocused={isFocused}
-    >
-      {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
-      <StyledInput
-        {...inputProps}
-        secureTextEntry={type === 'password'}
-        accessible
-        accessibilityLabel={ariaLabel || accessibilityLabel}
-        editable={isDisabled || isReadOnly ? false : true}
-        w={isFullWidth ? '100%' : undefined}
-        {...nonLayoutProps}
-        {...resolvedFontFamily}
-        placeholderTextColor={resolvedPlaceholderTextColor}
-        selectionColor={resolvedSelectionColor}
-        underlineColorAndroid={resolvedUnderlineColorAndroid}
-        onKeyPress={(e: any) => {
-          e.persist();
-          onKeyPress && onKeyPress(e);
-        }}
-        onFocus={(e: any) => {
+  } else {
+    return (
+      <InputBase
+        inputProps={inputProps}
+        isHovered={isHoveredProp}
+        isFocused={isFocusedProp}
+        {...props}
+        ref={ref}
+        onFocus={(e) => {
           handleFocus(true, onFocus ? () => onFocus(e) : () => {});
         }}
-        onBlur={(e: any) => {
+        onBlur={(e) => {
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
-        {..._input}
-        ref={mergeRefs([ref, _ref, wrapperRef])}
       />
-      {InputRightElement || rightElement
-        ? InputRightElement || rightElement
-        : null}
-    </Stack>
-  );
+    );
+  }
 };
 
 export default memo(forwardRef(Input));

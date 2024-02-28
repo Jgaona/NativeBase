@@ -1,6 +1,4 @@
 import React, { useContext, memo, forwardRef } from 'react';
-//@ts-ignore
-import stableHash from 'stable-hash';
 import { Pressable, IPressableProps } from '../Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -20,8 +18,6 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import SizedIcon from './SizedIcon';
-import { Stack } from '../Stack';
-import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
@@ -76,11 +72,10 @@ const Checkbox = (
     groupItemInputProps.disabled,
   ]);
 
-  const contextCombinedProps = React.useMemo(() => {
-    return { ...checkboxGroupContext, ...combinedProps };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stableHash(combinedProps)]);
-
+  const [contextCombinedProps] = React.useState({
+    ...checkboxGroupContext,
+    ...combinedProps,
+  });
   return (
     <CheckboxComponent
       inputProps={inputProps}
@@ -118,8 +113,7 @@ const CheckboxComponent = React.memo(
       icon,
       _interactionBox,
       _icon,
-      _stack,
-      _text,
+      // destructuring pressable props and passing it manually
       onPress,
       onPressIn,
       onPressOut,
@@ -157,8 +151,6 @@ const CheckboxComponent = React.memo(
     ] = extractInObject(nonLayoutProps, [
       'accessibilityRole',
       'accessibilityState',
-      'accessibilityLabel',
-      'accessibilityHint',
     ]);
 
     //TODO: refactor for responsive prop
@@ -168,7 +160,6 @@ const CheckboxComponent = React.memo(
 
     return (
       <Pressable
-        disabled={isDisabled}
         {...(pressableProps as IPressableProps)}
         {...accessibilityProps}
         onPress={onPress}
@@ -191,18 +182,24 @@ const CheckboxComponent = React.memo(
           // focusRingProps.onBlur
         )}
       >
-        <Stack {...layoutProps} {..._stack}>
+        <Box {...layoutProps}>
           <Center>
             {/* Interaction Wrapper */}
-            <Box {..._interactionBox} />
+            <Box
+              {..._interactionBox}
+              p={5}
+              w="100%"
+              height="100%"
+              zIndex={-1}
+            />
             {/* Checkbox */}
             <Center {...nonAccessibilityProps}>
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
             </Center>
           </Center>
           {/* Label */}
-          {wrapStringChild(combinedProps.children, _text)}
-        </Stack>
+          {combinedProps.children}
+        </Box>
       </Pressable>
     );
   }

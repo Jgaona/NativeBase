@@ -1,19 +1,12 @@
 import React from 'react';
-import {
-  Slide,
-  Button,
-  Alert,
-  Text,
-  useColorModeValue,
-  Center,
-} from 'native-base';
+import { Slide, Button, Alert, Text, Box } from 'native-base';
 export const Example = () => {
   const [isOpenTop, setIsOpenTop] = React.useState(false);
   const str = `${isOpenTop ? 'Hide' : 'Check Internet Connection'}`;
   return (
-    <Center h="32">
+    <Box h="32" w="300">
       <Slide in={isOpenTop} placement="top">
-        <Alert justifyContent="center" status="error" safeAreaTop={8}>
+        <Alert justifyContent="center" status="error">
           <Alert.Icon />
           <Text color="error.600" fontWeight="medium">
             No Internet Connection
@@ -21,13 +14,13 @@ export const Example = () => {
         </Alert>
       </Slide>
       <Button
+        mt="auto"
         onPress={() => setIsOpenTop(!isOpenTop)}
         variant="unstyled"
         bg="coolGray.700:alpha.30"
-        _text={{ color: useColorModeValue('darkText', 'lightText') }}
       >
         {str}
       </Button>
-    </Center>
+    </Box>
   );
 };

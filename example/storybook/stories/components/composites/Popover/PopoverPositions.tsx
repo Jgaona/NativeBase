@@ -3,32 +3,24 @@ import { Popover, Button, VStack, Select, CheckIcon, Box } from 'native-base';
 
 export function Example() {
   const [position, setPosition] = useState('auto');
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Box w="100%" alignItems="center">
+    <Box h="60%" w="100%" alignItems="center">
       <VStack space={6} alignSelf="flex-start" w="100%">
         <Popover
           // @ts-ignore
           placement={position === 'auto' ? undefined : position}
           trigger={(triggerProps) => {
             return (
-              <Button
-                colorScheme="danger"
-                alignSelf="center"
-                {...triggerProps}
-                onPress={() => setIsOpen(true)}
-              >
+              <Button colorScheme="danger" alignSelf="center" {...triggerProps}>
                 Delete Customer
               </Button>
             );
           }}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(!isOpen)}
         >
           <Popover.Content w="56">
             <Popover.Arrow />
-            <Popover.CloseButton onPress={() => setIsOpen(false)} />
+            <Popover.CloseButton />
             <Popover.Header>Delete Customer</Popover.Header>
             <Popover.Body>
               This will remove all data relating to Alex. This action cannot be
@@ -36,16 +28,10 @@ export function Example() {
             </Popover.Body>
             <Popover.Footer justifyContent="flex-end">
               <Button.Group space={2}>
-                <Button
-                  colorScheme="coolGray"
-                  variant="ghost"
-                  onPress={() => setIsOpen(false)}
-                >
+                <Button colorScheme="coolGray" variant="ghost">
                   Cancel
                 </Button>
-                <Button colorScheme="danger" onPress={() => setIsOpen(false)}>
-                  Delete
-                </Button>
+                <Button colorScheme="danger">Delete</Button>
               </Button.Group>
             </Popover.Footer>
           </Popover.Content>

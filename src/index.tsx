@@ -95,7 +95,6 @@ import {
   IActionsheetItemProps,
   Fab,
   IFabProps,
-  useFormControlContext,
   TextField,
   ITextFieldProps,
   Typeahead,
@@ -108,7 +107,6 @@ import {
   useToast,
   Toast,
   IToastProps,
-  ITooltipProps,
   Backdrop,
   Drawer,
   Tooltip,
@@ -123,7 +121,6 @@ import {
   ICheckboxProps,
   ICheckboxGroupProps,
   Radio,
-  RadioContext,
   IRadioProps,
   IRadioValue,
   IRadioGroupProps,
@@ -174,14 +171,11 @@ import {
   IStackProps,
   ITextAreaProps,
   IZStackProps,
-  Overlay,
-  IOverlayProps,
 } from './components/primitives';
 
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
-export { extractInObject, stylingProps } from './theme/tools';
 export * from './core';
 export * from './hooks';
 export * from './factory';
@@ -203,7 +197,6 @@ export {
   Code,
   Checkbox,
   Radio,
-  RadioContext,
   Column,
   Row,
   Center,
@@ -230,7 +223,6 @@ export {
   Container,
   Divider,
   Link,
-  Overlay,
   Pressable,
   Progress,
   Accordion,
@@ -265,7 +257,6 @@ export {
   // Tabs,
   Actionsheet,
   Fab,
-  useFormControlContext,
   Typeahead,
   useTypeahead,
   Select,
@@ -276,7 +267,6 @@ export {
   Drawer,
   Tooltip,
 };
-export * from './utils';
 export type {
   IAlertProps,
   IAspectRatioProps,
@@ -320,7 +310,7 @@ export type {
   IFormControlHelperTextProps,
   ISwitchProps,
   IFlexProps,
-  IOverlayProps,
+  IWrapProps,
   IPinInputProps,
   IPinInputFieldProps,
   IPressableProps,
@@ -354,7 +344,6 @@ export type {
   // ITabViewProps,
   // ITabsContextProps,
   IToastProps,
-  ITooltipProps,
   IActionsheetProps,
   IActionsheetContentProps,
   IActionsheetItemProps,
@@ -364,8 +353,7 @@ export type {
   ITextFieldProps,
   IScrollViewProps,
   IStackProps,
-  IWrapProps,
 };
 
-export type { StyledProps } from './theme/types';
+export { StyledProps } from './theme';
 export type { ITheme, ICustomTheme } from './theme';

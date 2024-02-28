@@ -12,6 +12,7 @@ export const Example = () => {
         justifyContent="center"
       >
         {/* Solid */}
+
         <Heading size="md">Solid</Heading>
         <Button.Group variant="solid" mb="2.5" mt="1.5">
           <Button colorScheme="teal">Save</Button>
@@ -20,17 +21,9 @@ export const Example = () => {
 
         <Divider />
 
-        {/* Subtle */}
-        <Heading size="md">Subtle</Heading>
-        <Button.Group mb="2.5" mt="1.5" variant="subtle">
-          <Button colorScheme="teal">Save</Button>
-          <Button colorScheme="danger">Cancel</Button>
-        </Button.Group>
-
-        <Divider />
+        <Heading size="md">Outline</Heading>
 
         {/* Outline */}
-        <Heading size="md">Outline</Heading>
         <Button.Group mb="2.5" mt="1.5" variant="outline">
           <Button colorScheme="teal">Save</Button>
           <Button colorScheme="danger">Cancel</Button>
@@ -38,8 +31,9 @@ export const Example = () => {
 
         <Divider />
 
-        {/* Link */}
         <Heading size="md">Link</Heading>
+
+        {/* Link */}
         <Button.Group mb="2.5" mt="1.5" variant="link">
           <Button colorScheme="teal">Save</Button>
           <Button colorScheme="danger">Cancel</Button>
@@ -47,8 +41,9 @@ export const Example = () => {
 
         <Divider />
 
-        {/* Ghost */}
         <Heading size="md">Ghost</Heading>
+
+        {/* Ghost */}
         <Button.Group mb="2.5" mt="1.5" variant="ghost">
           <Button colorScheme="teal">Save</Button>
           <Button colorScheme="danger">Cancel</Button>
@@ -56,8 +51,9 @@ export const Example = () => {
 
         <Divider />
 
-        {/* Unstyled */}
         <Heading size="md">Unstyled</Heading>
+
+        {/* Unstyled */}
         <Button.Group mb="2.5" mt="1.5" variant="unstyled">
           <Button colorScheme="teal">Save</Button>
           <Button colorScheme="danger">Cancel</Button>

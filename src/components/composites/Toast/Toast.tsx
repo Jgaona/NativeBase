@@ -1,19 +1,29 @@
-import { Overlay } from '../../primitives/Overlay';
+import { OverlayContainer } from '@react-native-aria/overlays';
 import { PresenceTransition } from '../Transitions';
 import VStack from '../../primitives/Stack/VStack';
+import { Alert } from '../../composites/Alert';
 import React, {
   createContext,
   MutableRefObject,
   useState,
   useMemo,
 } from 'react';
-import { AccessibilityInfo, Platform, SafeAreaView } from 'react-native';
+import {
+  AccessibilityInfo,
+  Easing,
+  Platform,
+  SafeAreaView,
+} from 'react-native';
+import IconButton from '../IconButton';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
+import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
-import { useKeyboardBottomInset } from '../../../utils';
+import Text from '../../primitives/Text';
+import HStack from '../../primitives/Stack/HStack';
+import { useColorMode } from '../../../core/color-mode/hooks';
 
-const INSET = 50;
+let INSET = 50;
 
 const POSITIONS = {
   'top': {
@@ -67,41 +77,35 @@ const ToastContext = createContext<IToastContext>({
   hideToast: () => {},
 });
 
-const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
+const CustomToast = () => {
   const { toastInfo, visibleToasts, removeToast } = React.useContext(
     ToastContext
   );
 
-  const bottomInset = useKeyboardBottomInset() * 2;
   const getPositions = () => {
     return Object.keys(toastInfo);
   };
 
-  let hasToastOnOverlay = false;
-  getPositions().map((position) => {
-    if (toastInfo[position]?.length > 0) hasToastOnOverlay = true;
-  });
-
   return getPositions().length > 0 ? (
-    <Overlay
-      {..._overlay}
-      isOpen={hasToastOnOverlay}
-      isKeyboardDismissable={false}
-    >
+    <OverlayContainer>
       {getPositions().map((position: string) => {
         if (Object.keys(POSITIONS).includes(position))
           return (
             <VStack
-              {..._stack}
+              margin="auto"
               key={position}
               // @ts-ignore
               {...POSITIONS[position]}
+              position="absolute"
+              space={2}
+              alignItems="center"
+              justifyContent="center"
+              pointerEvents="box-none"
             >
               {
                 // @ts-ignore
                 toastInfo[position].map((toast: IToast) => (
                   <PresenceTransition
-                    {..._presenceTransition}
                     key={toast.id}
                     visible={visibleToasts[toast.id]}
                     onTransitionComplete={(status: any) => {
@@ -115,20 +119,17 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
                       opacity: 0,
                       translateY: transitionConfig[position],
                     }}
+                    animate={{
+                      opacity: 1,
+                      transition: { easing: Easing.ease, duration: 250 },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.85,
+                      transition: { easing: Easing.ease, duration: 100 },
+                    }}
                   >
-                    <SafeAreaView>
-                      <Box
-                        bottom={
-                          ['bottom', 'bottom-left', 'bottom-right'].includes(
-                            position
-                          ) && toast.config?.avoidKeyboard
-                            ? bottomInset + 'px'
-                            : undefined
-                        }
-                      >
-                        {toast.component}
-                      </Box>
-                    </SafeAreaView>
+                    <SafeAreaView>{toast.component}</SafeAreaView>
                   </PresenceTransition>
                 ))
               }
@@ -136,7 +137,7 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
           );
         else return null;
       })}
-    </Overlay>
+    </OverlayContainer>
   ) : null;
 };
 
@@ -149,6 +150,8 @@ export const ToastProvider = ({ children }: { children: any }) => {
   >({});
 
   const [themeProps] = useState(usePropsResolution('Toast', {}));
+
+  const { colorMode } = useColorMode();
   const toastIndex = React.useRef(1);
 
   const hideAll = React.useCallback(() => {
@@ -203,20 +206,49 @@ export const ToastProvider = ({ children }: { children: any }) => {
     [setToastInfo]
   );
 
+  const getTextColor = React.useCallback(
+    (
+      variant:
+        | 'solid'
+        | 'left-accent'
+        | 'top-accent'
+        | 'outline'
+        | 'subtle'
+        | 'outline-light'
+        | any
+    ): any => {
+      switch (variant) {
+        case 'left-accent':
+        case 'top-accent':
+        case 'subtle':
+          return 'coolGray.800';
+        case 'solid':
+          return 'warmGray.50';
+        case 'outline':
+        case 'outline-light':
+          return colorMode === 'light' ? 'coolGray.800' : 'warmGray.50';
+        default:
+          return 'black';
+      }
+    },
+    [colorMode]
+  );
+
   const setToast = React.useCallback(
     (props: IToastProps): number => {
+      // console.log("in settoast");
       const {
         placement = 'bottom',
         title,
         render,
+        status,
         id = toastIndex.current++,
         description,
+        isClosable = true,
         duration = 5000,
-        _title,
-        _description,
+        variant,
         accessibilityAnnouncement,
-        // @ts-ignore
-        avoidKeyboard = false, //eslint-disable-line
+        accessibilityLiveRegion = 'polite',
         ...rest
       } = props;
 
@@ -227,17 +259,71 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
       if (render) {
         component = render({ id });
-      } else {
+      } else if (!status && !variant) {
         component = (
-          // Below VStack is the default component where all the direct props spread.
-          <VStack {...themeProps} {...rest}>
-            <Box _text={{ ...themeProps._title, ..._title }}>{title}</Box>
+          <VStack
+            space={title && description ? 1 : 0}
+            {...themeProps}
+            {...rest}
+          >
+            <Box _text={themeProps._title}>{title}</Box>
             {description && (
-              <Box _text={{ ...themeProps._description, ..._description }}>
-                {description}
-              </Box>
+              <Box _text={themeProps._description}>{description}</Box>
             )}
           </VStack>
+        );
+      } else if (status || variant) {
+        component = (
+          <Alert
+            maxWidth="100%"
+            alignSelf="center"
+            flexDirection="row"
+            status={status ?? 'info'}
+            variant={variant as any}
+            accessibilityLiveRegion={accessibilityLiveRegion}
+            {...rest}
+          >
+            <VStack space={1} flexShrink={1} w="100%">
+              <HStack
+                flexShrink={1}
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <HStack space={2} flexShrink={1} alignItems="center">
+                  <Alert.Icon />
+                  <Text
+                    fontSize="md"
+                    fontWeight="medium"
+                    color={getTextColor(variant ?? 'subtle')}
+                    flexShrink={1}
+                  >
+                    {title}
+                  </Text>
+                </HStack>
+                {isClosable ? (
+                  <IconButton
+                    variant="unstyled"
+                    icon={
+                      <CloseIcon
+                        size="3"
+                        color={getTextColor(variant ?? 'subtle')}
+                      />
+                    }
+                    onPress={() => hideToast(id)}
+                  />
+                ) : null}
+              </HStack>
+              <Box
+                px="6"
+                // @ts-ignore
+                _text={{
+                  color: getTextColor(variant ?? 'subtle'),
+                }}
+              >
+                {description}
+              </Box>
+            </VStack>
+          </Alert>
         );
       }
 
@@ -262,7 +348,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
 
       return id;
     },
-    [themeProps, toastInfo, visibleToasts, hideToast]
+    [getTextColor, themeProps, toastInfo, visibleToasts, hideToast]
   );
 
   const contextValue = React.useMemo(() => {
@@ -292,11 +378,7 @@ export const ToastProvider = ({ children }: { children: any }) => {
   return (
     <ToastContext.Provider value={contextValue}>
       {children}
-      <CustomToast
-        _overlay={themeProps._overlay}
-        _stack={themeProps._stack}
-        _presenceTransition={themeProps._presenceTransition}
-      />
+      <CustomToast />
     </ToastContext.Provider>
   );
 };

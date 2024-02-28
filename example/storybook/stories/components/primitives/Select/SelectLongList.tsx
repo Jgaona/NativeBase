@@ -54,7 +54,7 @@ export const Example = () => {
   ];
   return (
     <Container>
-      <FormControl maxW="300">
+      <FormControl>
         <FormControl.Label>Select Color</FormControl.Label>
         <Select
           selectedValue={value}
