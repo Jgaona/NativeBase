@@ -1,6 +1,6 @@
 {
   "name": "native-base",
-  "description": "Essential cross-platform UI components for React Native",
+  "description": "Essential cross-platform UI components for React Native/Forked",
   "sideEffects": false,
   "keywords": [
     "android",
