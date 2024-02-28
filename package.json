@@ -229,5 +229,8 @@
     "src",
     "lib",
     "cli.js"
-  ]
+  ],
+  "resolutions": {
+    "commander": "11.1.0"
+  }
 }
