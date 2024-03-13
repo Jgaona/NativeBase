@@ -236,7 +236,8 @@
     "@react-aria/utils": "3.11.2",
     "@react-stately/utils": "3.4.1",
     "@react-aria/ssr": "3.1.2",
+    "@react-aria/label": "3.2.3",
     "@react-types/shared": "3.11.1",
-    "@react-native-aria/interactions": "0.28.0"
+    "@react-native-aria/interactions": "0.2.8"
   }
 }
