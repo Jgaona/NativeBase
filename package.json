@@ -230,5 +230,8 @@
     "src",
     "lib",
     "cli.js"
-  ]
+  ],
+  "resolutions": {
+    "commander": "2.20.3"
+  }
 }
