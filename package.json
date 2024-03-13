@@ -16,7 +16,6 @@
   "scripts": {
     "test": "node_modules/.bin/jest",
     "typescript": "tsc --noEmit",
-    "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
