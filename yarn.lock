@@ -2732,7 +2732,7 @@
   version "2.12.2"
     integrity sha512-0QEFiR8ljcHp9bAbWxecjVRuAMr16ivPiGOw6KFQBVrVd0RQIcM3xKdRisH2EDWgVWujiYtHwhSkSUoAAGzH7Q==
   dependencies:
-    commander "2.20.3"
+    commander "*"
 
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
