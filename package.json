@@ -233,6 +233,7 @@
   ],
   "resolutions": {
     "@react-aria/interactions": "3.8.1",
-    "@react-aria/utils": "3.11.2"
+    "@react-aria/utils": "3.11.2",
+    "@react-stately/utils": "3.4.1"
   }
 }
