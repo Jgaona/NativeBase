@@ -238,7 +238,6 @@
     "@react-aria/ssr": "3.1.2",
     "@react-aria/label": "3.2.3",
     "@react-types/shared": "3.11.1",
-    "@react-native-aria/interactions": "0.2.8",
     "@react-types/button": "3.4.3",
     "@react-types/checkbox": "3.2.5",
     "@react-types/combobox": "3.2.3",
@@ -253,6 +252,18 @@
     "@react-types/switch": "3.1.4",
     "@react-types/table": "3.1.2",
     "@react-types/tabs": "3.0.0-alpha.2",
-    "@react-types/textfield": "3.3.2"
+    "@react-types/textfield": "3.3.2",
+    "@react-native-aria/button": "0.2.4",
+    "@react-native-aria/checkbox": "0.2.3",
+    "@react-native-aria/combobox": "0.2.4-alpha.1",
+    "@react-native-aria/focus": "0.2.5",
+    "@react-native-aria/interactions": "0.2.8",
+    "@react-native-aria/listbox": "0.2.4-alpha.3",
+    "@react-native-aria/overlays": "0.3.3-rc.0 ",
+    "@react-native-aria/radio": "0.2.5 ",
+    "@react-native-aria/slider": "0.2.5-alpha.2",
+    "@react-native-aria/tabs": "0.2.8",
+    "@react-native-aria/toggle": "0.2.3",
+    "@react-native-aria/utils": "0.2.8"
   }
 }
