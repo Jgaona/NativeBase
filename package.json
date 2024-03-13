@@ -268,6 +268,7 @@
     "@react-native-aria/slider": "0.2.5-alpha.2",
     "@react-native-aria/tabs": "0.2.8",
     "@react-native-aria/toggle": "0.2.3",
-    "@react-native-aria/utils": "0.2.8"
+    "@react-native-aria/utils": "0.2.8",
+    "@babel/runtime": "7.17.2"
   }
 }
