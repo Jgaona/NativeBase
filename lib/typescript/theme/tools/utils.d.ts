@@ -2489,6 +2489,12 @@ export declare const platformSpecificSpaceUnits: (theme: ITheme) => {
                 md: {
                     fontSize: string;
                 };
+                /**
+                 *
+                 * @param parent The object from which data needs to extracted
+                 * @param values Keys which needs to be extracted
+                 * @returns [extractedProps, remainingProps]
+                 */
                 sm: {
                     fontSize: string;
                 };
