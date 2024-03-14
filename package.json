@@ -171,8 +171,9 @@
     ]
   },
   "dependencies": {
-    "@react-aria/focus": "3.2.3",
-    "@react-aria/utils": "3.6.0",
+    "@react-aria/focus": "3.5.2",
+    "@react-aria/utils": "3.11.2",
+    "@react-aria/interactions": "3.8.1",
     "@react-aria/visually-hidden": "3.2.1",
     "@react-native-aria/button": "0.2.4",
     "@react-native-aria/checkbox": "0.2.2",
