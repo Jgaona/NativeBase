@@ -230,6 +230,7 @@
     "cli.js"
   ],
   "resolutions": {
-    "commander": "11.1.0"
+    "commander": "11.1.0",
+    "@react-aria/interactions": "3.8.1"
   }
 }
