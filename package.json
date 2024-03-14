@@ -231,6 +231,8 @@
   ],
   "resolutions": {
     "commander": "11.1.0",
-    "@react-aria/interactions": "3.8.1"
+    "@react-aria/interactions": "3.8.1",
+    "@react-aria/focus": "3.5.2",
+    "@react-aria/utils": "3.11.2"
   }
 }
