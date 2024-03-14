@@ -1,0 +1,567 @@
+
+"@react-aria/checkbox@^3.2.1":
+  version "3.3.1"
+  resolved "/@react-aria/checkbox/-/checkbox-3.3.1.tgz#c21cffa1405b22313071622c8b2789251ea89a22"
+  integrity sha1-whz/oUBbIjEwcWIsiyeJJR6omiI=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/label" "^3.2.3"
+    "@react-aria/toggle" "^3.2.1"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/checkbox" "^3.0.5"
+    "@react-stately/toggle" "^3.2.5"
+    "@react-types/checkbox" "^3.2.5"
+
+"@react-aria/combobox@^3.0.0-alpha.1":
+  version "3.2.3"
+  resolved "/@react-aria/combobox/-/combobox-3.2.3.tgz#2d14984c49b00ca4e69d1e2c77bd37f11a8e558c"
+  integrity sha1-LRSYTEmwDKTmnR4sd7038RqOVYw=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/listbox" "^3.4.2"
+    "@react-aria/live-announcer" "^3.0.3"
+    "@react-aria/menu" "^3.4.1"
+    "@react-aria/overlays" "^3.7.5"
+    "@react-aria/selection" "^3.7.3"
+    "@react-aria/textfield" "^3.5.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/combobox" "^3.0.3"
+    "@react-stately/layout" "^3.4.4"
+    "@react-types/button" "^3.4.3"
+    "@react-types/combobox" "^3.2.3"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/focus@^3.2.3", "@react-aria/focus@^3.5.2":
+  version "3.5.2"
+  resolved "/@react-aria/focus/-/focus-3.5.2.tgz#250852f328fdb8317b8aa8b01427cf53b68ffca4"
+  integrity sha1-JQhS8yj9uDF7iqiwFCfPU7aP/KQ=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/shared" "^3.11.1"
+    clsx "^1.1.1"
+
+"@react-aria/i18n@^3.2.0", "@react-aria/i18n@^3.3.6":
+  version "3.3.6"
+  resolved "/@react-aria/i18n/-/i18n-3.3.6.tgz#94dd8d5de3ce6bba845461230d04189ae9683651"
+  integrity sha1-lN2NXePOa7qEVGEjDQQYmuloNlE=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@internationalized/date" "3.0.0-alpha.3"
+    "@internationalized/message" "^3.0.5"
+    "@internationalized/number" "^3.0.5"
+    "@react-aria/ssr" "^3.1.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/interactions@^3.3.2", "@react-aria/interactions@^3.8.1":
+  version "3.8.1"
+  resolved "/@react-aria/interactions/-/interactions-3.8.1.tgz#d86aa8fcf93b38e2cf61dda7ef04c9e0a0527056"
+  integrity sha1-2Gqo/Pk7OOLPYd2n7wTJ4KBScFY=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/label@^3.1.1", "@react-aria/label@^3.2.3":
+  version "3.2.3"
+  resolved "/@react-aria/label/-/label-3.2.3.tgz#b2205941cadee24cdd6ceb6ae96224604247cfec"
+  integrity sha1-siBZQcre4kzdbOtq6WIkYEJHz+w=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/label" "^3.5.2"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/listbox@^3.2.4", "@react-aria/listbox@^3.4.2":
+  version "3.4.2"
+  resolved "/@react-aria/listbox/-/listbox-3.4.2.tgz#c975443f8fb05fe578a51ac136b4cde1c24ced7c"
+  integrity sha1-yXVEP4+wX+V4pRrBNrTN4cJM7Xw=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/label" "^3.2.3"
+    "@react-aria/selection" "^3.7.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/list" "^3.4.3"
+    "@react-types/listbox" "^3.2.3"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/live-announcer@^3.0.0-alpha.0", "@react-aria/live-announcer@^3.0.3":
+  version "3.0.3"
+  resolved "/@react-aria/live-announcer/-/live-announcer-3.0.3.tgz#ad550ad298b048a5e1d1231a431369e3ea4e78ab"
+  integrity sha1-rVUK0piwSKXh0SMaQxNp4+pOeKs=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-aria/visually-hidden" "^3.2.5"
+
+"@react-aria/menu@^3.4.1":
+  version "3.4.1"
+  resolved "/@react-aria/menu/-/menu-3.4.1.tgz#ecbda219872fec9a745545529438ef7849552676"
+  integrity sha1-7L2iGYcv7Jp0VUVSlDjveElVJnY=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/overlays" "^3.7.5"
+    "@react-aria/selection" "^3.7.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/menu" "^3.2.5"
+    "@react-stately/tree" "^3.2.2"
+    "@react-types/button" "^3.4.3"
+    "@react-types/menu" "^3.5.1"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/overlays@^3.6.1", "@react-aria/overlays@^3.7.0", "@react-aria/overlays@^3.7.5":
+  version "3.7.5"
+  resolved "/@react-aria/overlays/-/overlays-3.7.5.tgz#c14c82efd0ad5da500fb9686cbd69f44ea5e847e"
+  integrity sha1-wUyC79CtXaUA+5aGy9afROpehH4=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
+    "@react-aria/visually-hidden" "^3.2.5"
+    "@react-stately/overlays" "^3.1.5"
+    "@react-types/button" "^3.4.3"
+    "@react-types/overlays" "^3.5.3"
+    dom-helpers "^3.3.1"
+
+"@react-aria/radio@^3.1.2":
+  version "3.1.8"
+  resolved "/@react-aria/radio/-/radio-3.1.8.tgz#1747f21f7b46046584836f7388324ae86430c4a2"
+  integrity sha1-F0fyH3tGBGWEg29ziDJK6GQwxKI=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/label" "^3.2.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/radio" "^3.3.4"
+    "@react-types/radio" "^3.1.4"
+
+"@react-aria/selection@^3.3.1", "@react-aria/selection@^3.3.2", "@react-aria/selection@^3.7.3":
+  version "3.7.3"
+  resolved "/@react-aria/selection/-/selection-3.7.3.tgz#3c9ed151aa90033a2dbb90d6f0b9bea550e388a0"
+  integrity sha1-PJ7RUaqQAzotu5DW8Lm+pVDjiKA=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/selection" "^3.9.2"
+    "@react-types/shared" "^3.11.1"
+
+"@react-aria/slider@^3.0.1":
+  version "3.0.5"
+  resolved "/@react-aria/slider/-/slider-3.0.5.tgz#463e9170d9ca626d3a850651facf46a788fcfd69"
+  integrity sha1-Rj6RcNnKYm06hQZR+s9Gp4j8/Wk=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/label" "^3.2.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/radio" "^3.3.4"
+    "@react-stately/slider" "^3.0.5"
+    "@react-types/radio" "^3.1.4"
+    "@react-types/slider" "^3.0.4"
+
+"@react-aria/ssr@^3.0.1", "@react-aria/ssr@^3.1.2":
+  version "3.1.2"
+  resolved "/@react-aria/ssr/-/ssr-3.1.2.tgz#665a6fd56385068c7417922af2d0d71b0618e52d"
+  integrity sha1-Zlpv1WOFBox0F5Iq8tDXGwYY5S0=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+
+"@react-aria/tabs@3.0.0-alpha.2":
+  version "3.0.0-alpha.2"
+  resolved "/@react-aria/tabs/-/tabs-3.0.0-alpha.2.tgz#3b931d9c752c2dca4c2a1b975248b0ee751077a2"
+  integrity sha1-O5MdnHUsLcpMKhuXUkiw7nUQd6I=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.2.0"
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/selection" "^3.3.1"
+    "@react-aria/utils" "^3.4.1"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/tabs" "3.0.0-alpha.0"
+    "@react-types/shared" "^3.2.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
+"@react-aria/textfield@^3.5.2":
+  version "3.5.2"
+  resolved "/@react-aria/textfield/-/textfield-3.5.2.tgz#8fdf2f8375ee20c64bf21882ba03c00cc194995e"
+  integrity sha1-j98vg3XuIMZL8hiCugPADMGUmV4=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/label" "^3.2.3"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/shared" "^3.11.1"
+    "@react-types/textfield" "^3.3.2"
+
+"@react-aria/toggle@^3.2.1":
+  version "3.2.1"
+  resolved "/@react-aria/toggle/-/toggle-3.2.1.tgz#a1a20972675c69b0f9f86ad43cdf212b41903beb"
+  integrity sha1-oaIJcmdcabD5+GrUPN8hK0GQO+s=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.5.2"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/toggle" "^3.2.5"
+    "@react-types/checkbox" "^3.2.5"
+    "@react-types/shared" "^3.11.1"
+    "@react-types/switch" "^3.1.4"
+
+"@react-aria/utils@^3.11.2", "@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.1", "@react-aria/utils@^3.6.0":
+  version "3.11.2"
+  resolved "/@react-aria/utils/-/utils-3.11.2.tgz#95747fb362bfcbc591270e5c67b7a38eaa60c187"
+  integrity sha1-lXR/s2K/y8WRJw5cZ7ejjqpgwYc=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/ssr" "^3.1.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/shared" "^3.11.1"
+    clsx "^1.1.1"
+
+"@react-aria/visually-hidden@^3.2.1", "@react-aria/visually-hidden@^3.2.5":
+  version "3.2.5"
+  resolved "/@react-aria/visually-hidden/-/visually-hidden-3.2.5.tgz#721a465ae094ddea119ff351c03d6aaf503b15fb"
+  integrity sha1-chpGWuCU3eoRn/NRwD1qr1A7Ffs=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
+    clsx "^1.1.1"
+
+"@react-native-aria/button@^0.2.4":
+  version "0.2.4"
+  resolved "/@react-native-aria/button/-/button-0.2.4.tgz#ce0c994449011f4b852a222afd90e027fb839de0"
+  integrity sha1-zgyZREkBH0uFKiIq/ZDgJ/uDneA=
+  dependencies:
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/interactions" "^0.2.3"
+    "@react-stately/toggle" "^3.2.1"
+    "@react-types/checkbox" "^3.2.1"
+
+"@react-native-aria/checkbox@^0.2.2":
+  version "0.2.3"
+  resolved "/@react-native-aria/checkbox/-/checkbox-0.2.3.tgz#b6c99c215677df872f1bb4e596b54573f1c7a5f0"
+  integrity sha1-tsmcIVZ334cvG7TllrVFc/HHpfA=
+  dependencies:
+    "@react-aria/checkbox" "^3.2.1"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/toggle" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-stately/toggle" "^3.2.1"
+
+"@react-native-aria/combobox@^0.2.4-alpha.0":
+  version "0.2.4-alpha.1"
+  resolved "/@react-native-aria/combobox/-/combobox-0.2.4-alpha.1.tgz#2ec7c5c2e87aba4dda62e494a4c3538066275e2b"
+  integrity sha1-LsfFwuh6uk3aYuSUpMNTgGYnXis=
+  dependencies:
+    "@react-aria/combobox" "^3.0.0-alpha.1"
+    "@react-aria/live-announcer" "^3.0.0-alpha.0"
+    "@react-aria/overlays" "^3.6.1"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-types/button" "^3.3.1"
+
+"@react-native-aria/focus@^0.2.4":
+  version "0.2.5"
+  resolved "/@react-native-aria/focus/-/focus-0.2.5.tgz#28ff752b28b7dfeb737147856aaf6669de3290f9"
+  integrity sha1-KP91Kyi33+tzcUeFaq9mad4ykPk=
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+
+"@react-native-aria/interactions@^0.2.2", "@react-native-aria/interactions@^0.2.3", "@react-native-aria/interactions@^0.2.7":
+  version "0.2.8"
+  resolved "/@react-native-aria/interactions/-/interactions-0.2.8.tgz#5ced4bd3391c647699fa79275472f784a44c2488"
+  integrity sha1-XO1L0zkcZHaZ+nknVHL3hKRMJIg=
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.6"
+
+"@react-native-aria/listbox@^0.2.4-alpha.3":
+  version "0.2.4-alpha.3"
+  resolved "/@react-native-aria/listbox/-/listbox-0.2.4-alpha.3.tgz#1a8df0de6c932c8143ea73e43713a5d37070203c"
+  integrity sha1-Go3w3myTLIFD6nPkNxOl03BwIDw=
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/listbox" "^3.2.4"
+    "@react-aria/selection" "^3.3.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/interactions" "^0.2.2"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-types/listbox" "^3.1.1"
+    "@react-types/shared" "^3.4.0"
+
+"@react-native-aria/overlays@0.3.3-rc.0":
+  version "0.3.3-rc.0"
+  resolved "/@react-native-aria/overlays/-/overlays-0.3.3-rc.0.tgz#9041ddd6f151e6edb50c971d29920c458aa41459"
+  integrity sha1-kEHd1vFR5u21DJcdKZIMRYqkFFk=
+  dependencies:
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/overlays" "^3.7.0"
+    "@react-native-aria/utils" "^0.2.8"
+    "@react-stately/overlays" "^3.1.1"
+    "@react-types/overlays" "^3.4.0"
+    dom-helpers "^5.0.0"
+
+"@react-native-aria/radio@^0.2.4":
+  version "0.2.5"
+  resolved "/@react-native-aria/radio/-/radio-0.2.5.tgz#436d3abdbb48bcaf6e9c5c045ff9c5bf87b71248"
+  integrity sha1-Q206vbtIvK9unFwEX/nFv4e3Ekg=
+  dependencies:
+    "@react-aria/radio" "^3.1.2"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/interactions" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-stately/radio" "^3.2.1"
+    "@react-types/radio" "^3.1.1"
+
+"@react-native-aria/slider@^0.2.5-alpha.1":
+  version "0.2.5-alpha.2"
+  resolved "/@react-native-aria/slider/-/slider-0.2.5-alpha.2.tgz#e613c2ac338de8d8ef8999ed664ea743174ee8da"
+  integrity sha1-5hPCrDON6NjviZntZk6nQxdO6No=
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/interactions" "^3.3.2"
+    "@react-aria/label" "^3.1.1"
+    "@react-aria/slider" "^3.0.1"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-stately/slider" "^3.0.1"
+
+"@react-native-aria/tabs@^0.2.7":
+  version "0.2.8"
+  resolved "/@react-native-aria/tabs/-/tabs-0.2.8.tgz#8b721261a277fe0459154f70c25b81e23217c864"
+  integrity sha1-i3ISYaJ3/gRZFU9wwluB4jIXyGQ=
+  dependencies:
+    "@react-aria/selection" "^3.3.1"
+    "@react-aria/tabs" "3.0.0-alpha.2"
+    "@react-native-aria/interactions" "^0.2.7"
+    "@react-native-aria/utils" "^0.2.7"
+    "@react-stately/tabs" "3.0.0-alpha.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
+"@react-native-aria/toggle@^0.2.3":
+  version "0.2.3"
+  resolved "/@react-native-aria/toggle/-/toggle-0.2.3.tgz#a387f03480aa0d97dc0191acbcae66122f7bcf7f"
+  integrity sha1-o4fwNICqDZfcAZGsvK5mEi97z38=
+  dependencies:
+    "@react-aria/focus" "^3.2.3"
+    "@react-aria/utils" "^3.6.0"
+    "@react-native-aria/interactions" "^0.2.3"
+    "@react-native-aria/utils" "^0.2.6"
+    "@react-stately/toggle" "^3.2.1"
+    "@react-types/checkbox" "^3.2.1"
+
+"@react-native-aria/utils@^0.2.6", "@react-native-aria/utils@^0.2.7", "@react-native-aria/utils@^0.2.8":
+  version "0.2.8"
+  resolved "/@react-native-aria/utils/-/utils-0.2.8.tgz#da433606506125483080f18dbcd97b526ca46fd5"
+  integrity sha1-2kM2BlBhJUgwgPGNvNl7Umykb9U=
+  dependencies:
+    "@react-aria/ssr" "^3.0.1"
+    "@react-aria/utils" "^3.3.0"
+
+
+    "@react-stately/checkbox@^3.0.1", "@react-stately/checkbox@^3.0.5":
+  version "3.0.5"
+  resolved "/@react-stately/checkbox/-/checkbox-3.0.5.tgz#7a78bad3ac14bb36d73ad86eeb9bf7dd37b28173"
+  integrity sha1-eni606wUuzbXOthu65v33TeygXM=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/toggle" "^3.2.5"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/checkbox" "^3.2.5"
+
+"@react-stately/collections@^3.3.0", "@react-stately/collections@^3.3.6":
+  version "3.3.6"
+  resolved "/@react-stately/collections/-/collections-3.3.6.tgz#89ae0309e5e9a9104f286ed5c618919789f16921"
+  integrity sha1-ia4DCeXpqRBPKG7VxhiRl4nxaSE=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/combobox@^3.0.0-alpha.1", "@react-stately/combobox@^3.0.3":
+  version "3.0.3"
+  resolved "/@react-stately/combobox/-/combobox-3.0.3.tgz#e0174036e62bf9ef24140643e3adb2a9329cc08d"
+  integrity sha1-4BdANuYr+e8kFAZD462yqTKcwI0=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.4.3"
+    "@react-stately/menu" "^3.2.5"
+    "@react-stately/select" "^3.1.5"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/combobox" "^3.2.3"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/layout@^3.4.4":
+  version "3.4.4"
+  resolved "/@react-stately/layout/-/layout-3.4.4.tgz#f1bc12c90c06f34c11a88953bdea796c060cf486"
+  integrity sha1-8bwSyQwG80wRqIlTvep5bAYM9IY=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/virtualizer" "^3.1.7"
+    "@react-types/grid" "^3.0.2"
+    "@react-types/shared" "^3.11.1"
+    "@react-types/table" "^3.1.2"
+
+"@react-stately/list@^3.2.2", "@react-stately/list@^3.4.3":
+  version "3.4.3"
+  resolved "/@react-stately/list/-/list-3.4.3.tgz#e9ba65126fa189e48ea9d1440a09fbc3e2490173"
+  integrity sha1-6bplEm+hieSOqdFECgn7w+JJAXM=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/selection" "^3.9.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/menu@^3.2.5":
+  version "3.2.5"
+  resolved "/@react-stately/menu/-/menu-3.2.5.tgz#336637198b2c00307522d7d2efc950521e8f908a"
+  integrity sha1-M2Y3GYssADB1ItfS78lQUh6PkIo=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/overlays" "^3.1.5"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/menu" "^3.5.1"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/overlays@^3.1.1", "@react-stately/overlays@^3.1.5":
+  version "3.1.5"
+  resolved "/@react-stately/overlays/-/overlays-3.1.5.tgz#12bf7ca6a180127e260dccc408c23c4cdc1aaf7c"
+  integrity sha1-Er98pqGAEn4mDczECMI8TNwar3w=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/overlays" "^3.5.3"
+
+"@react-stately/radio@^3.2.1", "@react-stately/radio@^3.3.4":
+  version "3.3.4"
+  resolved "/@react-stately/radio/-/radio-3.3.4.tgz#00d0b17ce6ceff6854b7545040f201489397ece4"
+  integrity sha1-ANCxfObO/2hUt1RQQPIBSJOX7OQ=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/radio" "^3.1.4"
+
+"@react-stately/select@^3.1.5":
+  version "3.1.5"
+  resolved "/@react-stately/select/-/select-3.1.5.tgz#fc96d54f2f4ca14bc386751dcea88e86ac687664"
+  integrity sha1-/JbVTy9MoUvDhnUdzqiOhqxodmQ=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/list" "^3.4.3"
+    "@react-stately/menu" "^3.2.5"
+    "@react-stately/selection" "^3.9.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/select" "^3.5.3"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/selection@^3.9.2":
+  version "3.9.2"
+  resolved "/@react-stately/selection/-/selection-3.9.2.tgz#8d42b556f1e569e030dc4314379e6b16858e896d"
+  integrity sha1-jUK1VvHlaeAw3EMUN55rFoWOiW0=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/slider@^3.0.1", "@react-stately/slider@^3.0.5":
+  version "3.0.5"
+  resolved "/@react-stately/slider/-/slider-3.0.5.tgz#b6f2f1fa863b69292c2f9abdee94932318b945d2"
+  integrity sha1-tvLx+oY7aSksL5q97pSTIxi5RdI=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.6"
+    "@react-aria/utils" "^3.11.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/slider" "^3.0.4"
+
+"@react-stately/tabs@3.0.0-alpha.0":
+  version "3.0.0-alpha.0"
+  resolved "/@react-stately/tabs/-/tabs-3.0.0-alpha.0.tgz#41451c7957ab2773fc4edb78ec02fcb94c6ab226"
+  integrity sha1-QUUceVerJ3P8Ttt47AL8uUxqsiY=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/utils" "^3.0.0-alpha.1"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
+"@react-stately/tabs@3.0.0-alpha.1":
+  version "3.0.0-alpha.1"
+  resolved "/@react-stately/tabs/-/tabs-3.0.0-alpha.1.tgz#b166ca9733ebebcc3bb2223116b8b070af104812"
+  integrity sha1-sWbKlzPr68w7siIxFriwcK8QSBI=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.2.2"
+    "@react-stately/utils" "^3.2.0"
+    "@react-types/tabs" "3.0.0-alpha.2"
+
+"@react-stately/tabs@^3.0.0-alpha.1":
+  version "3.0.3"
+  resolved "/@react-stately/tabs/-/tabs-3.0.3.tgz#63b6eb2d393398ff53a5c78e52e66e39d8d39219"
+  integrity sha1-Y7brLTkzmP9TpceOUuZuOdjTkhk=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/list" "^3.4.3"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/tabs" "^3.0.3"
+
+"@react-stately/toggle@^3.2.1", "@react-stately/toggle@^3.2.5":
+  version "3.2.5"
+  resolved "/@react-stately/toggle/-/toggle-3.2.5.tgz#6a560600a6dcfe4e7b05ad0f6bd30a4d5f1474c6"
+  integrity sha1-alYGAKbc/k57Ba0Pa9MKTV8UdMY=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/checkbox" "^3.2.5"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/tree@^3.2.2":
+  version "3.2.2"
+  resolved "/@react-stately/tree/-/tree-3.2.2.tgz#b37cb5ff7ba972c3d2633e9fe6b2a92441770d97"
+  integrity sha1-s3y1/3upcsPSYz6f5rKpJEF3DZc=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.3.6"
+    "@react-stately/selection" "^3.9.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/shared" "^3.11.1"
+
+"@react-stately/utils@^3.0.0-alpha.1", "@react-stately/utils@^3.2.0", "@react-stately/utils@^3.4.1":
+  version "3.4.1"
+  resolved "/@react-stately/utils/-/utils-3.4.1.tgz#56f049aa1704d338968b5973c796ee606e9c0c62"
+  integrity sha1-VvBJqhcE0ziWi1lzx5buYG6cDGI=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+
+"@react-stately/virtualizer@^3.1.7":
+  version "3.1.7"
+  resolved "/@react-stately/virtualizer/-/virtualizer-3.1.7.tgz#7bb37a904883b6f7d9bd09c3a5f660cc8438c21b"
+  integrity sha1-e7N6kEiDtvfZvQnDpfZgzIQ4whs=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.11.2"
+    "@react-types/shared" "^3.11.1"
